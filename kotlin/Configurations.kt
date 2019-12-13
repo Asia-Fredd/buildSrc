@@ -13,14 +13,16 @@ object Versions {
 object Configs {
     internal object Kotlin : Source(version = Versions.KOTLIN) {
         val GradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
-        val StdLib  = "org.jetbrains.kotlin:kotlin-stdlib:$version"       // kotlin("stdlib")
-        val StdLib7 = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version"  // kotlin("stdlib-jdk7")
-        val StdLib8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$version"  // kotlin("stdlib-jdk8")
-        val TestJunit = "org.jetbrains.kotlin:kotlin-test-junit:$version" // kotlin("test-junit")
+        val StdLib       = "org.jetbrains.kotlin:kotlin-stdlib:$version"       // kotlin("stdlib")
+        val StdLib7      = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version"  // kotlin("stdlib-jdk7")
+        val StdLib8      = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$version"  // kotlin("stdlib-jdk8")
+        val TestJunit    = "org.jetbrains.kotlin:kotlin-test-junit:$version" // kotlin("test-junit")
     }
+
     internal data class Android(private val v: String) : Source(version = v) {
         val GradleTools: String = "com.android.tools.build:gradle:$version"
     }
+
     val KotlinGradlePlugin = Kotlin.GradlePlugin
     val AndroidGradleTools = Android(Versions.ANDROID_STUDIO_STABLE).GradleTools
     val AndroidGradleTools_Beta = Android(Versions.ANDROID_STUDIO_BETA).GradleTools
@@ -35,11 +37,12 @@ object BuildScan : Source(version = "3.1") {
 
 object Libs {
     object Kotlin {
-        val StdLib  = Configs.Kotlin.StdLib
-        val StdLib7 = Configs.Kotlin.StdLib7
-        val StdLib8 = Configs.Kotlin.StdLib8
+        val StdLib    = Configs.Kotlin.StdLib
+        val StdLib7   = Configs.Kotlin.StdLib7
+        val StdLib8   = Configs.Kotlin.StdLib8
         val TestJunit = Configs.Kotlin.TestJunit
     }
+
     object AndroidX : Source(version = "1.1.0") {
 
         val AppCompat = "androidx.appcompat:appcompat:$version"
@@ -49,13 +52,18 @@ object Libs {
         const val Legacy = "androidx.legacy:legacy-support-v4:1.0.0"
 
         object Lifecycle : Source(version = "2.1.0") {
-            val Extensions = "androidx.lifecycle:lifecycle-extensions:$version"
+            val Extensions   = "androidx.lifecycle:lifecycle-extensions:$version"
             val ViewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$version"
         }
 
         object Test {
-            const val Runner = "androidx.test:runner:1.2.0"
+            const val Runner   = "androidx.test:runner:1.2.0"
             const val Espresso = "androidx.test.espresso:espresso-core:3.2.0"
+
+            object Ext : Source(version = "1.1.1") {
+                val JUnit     = "androidx.test.ext:junit:$version"
+                val JUnit_KTX = "androidx.test.ext:junit-ktx:$version"
+            }
         }
     }
 }
