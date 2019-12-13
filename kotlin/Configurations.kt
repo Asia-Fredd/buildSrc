@@ -1,7 +1,7 @@
 @file:Suppress("PropertyName", "Unused")
 
 object Versions {
-    const val KOTLIN = "1.3.60"
+    const val KOTLIN = "1.3.61"
     const val ANDROID_STUDIO_STABLE = "3.5.3"
     const val ANDROID_STUDIO_BETA   = "3.6.0-beta05"
     const val ANDROID_STUDIO_CANARY = "4.0.0-alpha06"

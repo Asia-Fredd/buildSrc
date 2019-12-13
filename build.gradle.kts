@@ -8,6 +8,9 @@ repositories {
     // https://proandroiddev.com/gradle-dependency-management-with-kotlin-94eed4df9a28#a296
     jcenter()
 }
+kotlinDslPluginOptions {
+    experimentalWarning.set(false)
+}
 sourceSets["main"].withConvention(org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet::class) {
     kotlin.srcDir("kotlin")
 }
